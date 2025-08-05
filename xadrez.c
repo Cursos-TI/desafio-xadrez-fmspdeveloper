@@ -5,6 +5,8 @@ int main()
 
     int movimentoTorreBispo = 6;
     int movimentoRainha = 8;
+    int movimentos_baixo = 2;
+    int movimentos_esquerda = 1;
 
     // for usado para movimento da torre
 
@@ -41,4 +43,24 @@ int main()
     } while (contadorRainha <= movimentoRainha);
 
     printf("Encerrando movimento da Rainha...\n");
+
+    printf("Iniciando movimento do cavalo...\n");
+
+    int contadorCavaloBaixo;
+    for (contadorCavaloBaixo = 1; contadorCavaloBaixo <= movimentos_baixo; contadorCavaloBaixo++)
+    {
+        for (contadorCavaloBaixo = 1; contadorCavaloBaixo <= movimentos_baixo; contadorCavaloBaixo++)
+        {
+            printf("**Cavalo** %d passos para Baixo\n", contadorCavaloBaixo);
+        }
+    }
+
+    int contadorCavalorEsquerda = 1;
+    while (contadorCavalorEsquerda <= movimentos_esquerda)
+    {
+        printf("**Cavalo** %d passos para Esquerda\n", contadorCavalorEsquerda);
+        contadorCavalorEsquerda++;
+    }
+
+    printf("encerrando movimento do cavalo...\n");
 }
