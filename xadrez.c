@@ -1,5 +1,6 @@
 #include <stdio.h>
 
+// função para movimentos da torre
 void torre(int movimentoTorreDireita)
 {
 
@@ -9,6 +10,7 @@ void torre(int movimentoTorreDireita)
         printf("**TORRE** %d passos para Direita\n", contadorTorre);
     }
 }
+// função para movimentos do bispo
 
 void bispo(int movimentoBispoCima, int movimentoBispoDireita)
 {
@@ -30,6 +32,7 @@ void bispo(int movimentoBispoCima, int movimentoBispoDireita)
     }
 }
 
+// função para movimentos da rainha
 void rainha(int movimentoRainhaEsquerda)
 {
     int contadorRainha = 1;
@@ -39,6 +42,7 @@ void rainha(int movimentoRainhaEsquerda)
     }
 }
 
+// função para movimentos do cavalo
 void cavalo(int movimentoCavaloCima, int movimentoCavaloDireita)
 {
 
@@ -63,44 +67,49 @@ int main()
 {
 
     printf("Iniciando movimento da Torre...\n");
+
     int movimentoTorreDireita;
     printf("Digite quantas casas para direita\n");
-    scanf("%d", &movimentoTorreDireita);
-    torre(movimentoTorreDireita);
+    scanf("%d", &movimentoTorreDireita); // entrada de dados torre
+
+    torre(movimentoTorreDireita); // funcao da torre
 
     printf("Encerrando movimento da torre...\n");
 
     printf("Iniciando movimento do bispo...\n");
 
     int movimentoBispoCima, movimentoBispoDireita;
-    printf("Digite quantas casas para cima\n");
-    scanf("%d", &movimentoBispoCima);
-    printf("Digite quantas casas para direita\n");
-    scanf("%d", &movimentoBispoDireita);
 
-    bispo(movimentoBispoCima, movimentoBispoDireita);
+    printf("Digite quantas casas para cima\n");
+    scanf("%d", &movimentoBispoCima); // entrada de dados bispo
+
+    printf("Digite quantas casas para direita\n");
+    scanf("%d", &movimentoBispoDireita); // entrada de dados bispo
+
+    bispo(movimentoBispoCima, movimentoBispoDireita); // funcao do bispo
 
     printf("Encerrando movimento do bispo...\n");
 
-    // do-while usado para movimento da rainha
     printf("Iniciando movimento da Rainha...\n");
 
     int movimentoRainhaEsquerda;
     printf("Digite quantas casas para esquerda!\n");
-    scanf("%d", &movimentoRainhaEsquerda);
-    rainha(movimentoRainhaEsquerda);
+    scanf("%d", &movimentoRainhaEsquerda); // entrada de dados rainha
+    rainha(movimentoRainhaEsquerda);       // funcao da rainha
 
     printf("Encerrando movimento da Rainha...\n");
 
     printf("Iniciando movimento do cavalo...\n");
 
     int movimentoCavaloCima, movimentoCavaloDireita;
-    printf("Quantas casas para cima?\n");
+    printf("Quantas casas para cima?\n"); // entrada de dados cavalo
     scanf("%d", &movimentoCavaloCima);
-    printf("Quantas casas para direita?\n");
+    printf("Quantas casas para direita?\n"); // entrada de dados cavalo
     scanf("%d", &movimentoCavaloDireita);
 
-    cavalo(movimentoCavaloCima, movimentoCavaloDireita);
+    cavalo(movimentoCavaloCima, movimentoCavaloDireita); // funcao do cavalo
 
     printf("encerrando movimento do cavalo...\n");
+
+    return 0;
 }
