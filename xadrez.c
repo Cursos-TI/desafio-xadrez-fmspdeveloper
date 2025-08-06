@@ -1,66 +1,106 @@
 #include <stdio.h>
 
-int main()
+void torre(int movimentoTorreDireita)
 {
 
-    int movimentoTorreBispo = 6;
-    int movimentoRainha = 8;
-    int movimentos_baixo = 2;
-    int movimentos_esquerda = 1;
-
-    // for usado para movimento da torre
-
     int contadorTorre = 1;
-
-    printf("Iniciando movimento da Torre...\n");
-    for (contadorTorre = 1; contadorTorre < movimentoTorreBispo; contadorTorre++)
+    for (contadorTorre = 1; contadorTorre <= movimentoTorreDireita; contadorTorre++)
     {
         printf("**TORRE** %d passos para Direita\n", contadorTorre);
     }
+}
+
+void bispo(int movimentoBispoCima, int movimentoBispoDireita)
+{
+
+    int contadorBispo = 1;
+    int movimentos = movimentoBispoCima > movimentoBispoDireita ? movimentoBispoCima : movimentoBispoDireita;
+    // while usado para movimento bispo
+
+    for (contadorBispo = 1; contadorBispo <= movimentos; contadorBispo++)
+    {
+        if (contadorBispo <= movimentoBispoCima)
+        {
+            printf("**BISPO** %d/%d passos para Cima \n", contadorBispo, movimentoBispoCima);
+        }
+        if (contadorBispo <= movimentoBispoDireita)
+        {
+            printf("**BISPO** %d/%d passos para Direita\n", contadorBispo, movimentoBispoDireita);
+        }
+    }
+}
+
+void rainha(int movimentoRainhaEsquerda)
+{
+    int contadorRainha = 1;
+    for (contadorRainha = 1; contadorRainha <= movimentoRainhaEsquerda; contadorRainha++)
+    {
+        printf("**Rainha** %d passos para esquerda\n", contadorRainha);
+    }
+}
+
+void cavalo(int movimentoCavaloCima, int movimentoCavaloDireita)
+{
+
+    int contadorCavalocima;
+    for (contadorCavalocima = 1; contadorCavalocima <= movimentoCavaloCima; contadorCavalocima++)
+    {
+        for (contadorCavalocima = 1; contadorCavalocima <= movimentoCavaloCima; contadorCavalocima++)
+        {
+            printf("**Cavalo** %d passos para Cima\n", contadorCavalocima);
+        }
+    }
+
+    int contadorCavalodireita = 1;
+    while (contadorCavalodireita <= movimentoCavaloDireita)
+    {
+        printf("**Cavalo** %d passos para Direita\n", contadorCavalodireita);
+        contadorCavalodireita++;
+    }
+}
+
+int main()
+{
+
+    printf("Iniciando movimento da Torre...\n");
+    int movimentoTorreDireita;
+    printf("Digite quantas casas para direita\n");
+    scanf("%d", &movimentoTorreDireita);
+    torre(movimentoTorreDireita);
 
     printf("Encerrando movimento da torre...\n");
 
     printf("Iniciando movimento do bispo...\n");
 
-    int contadorBispo = 1;
-    // while usado para movimento bispo
-    while (contadorBispo < movimentoTorreBispo)
-    {
-        printf("**BISPO** %d passos para Cima, Direita\n", contadorBispo);
-        contadorBispo++;
-    }
+    int movimentoBispoCima, movimentoBispoDireita;
+    printf("Digite quantas casas para cima\n");
+    scanf("%d", &movimentoBispoCima);
+    printf("Digite quantas casas para direita\n");
+    scanf("%d", &movimentoBispoDireita);
+
+    bispo(movimentoBispoCima, movimentoBispoDireita);
 
     printf("Encerrando movimento do bispo...\n");
 
     // do-while usado para movimento da rainha
     printf("Iniciando movimento da Rainha...\n");
 
-    int contadorRainha = 1;
-    do
-    {
-        printf("**Rainha** %d passos para esquerda\n", contadorRainha);
-        contadorRainha++;
-    } while (contadorRainha <= movimentoRainha);
+    int movimentoRainhaEsquerda;
+    printf("Digite quantas casas para esquerda!\n");
+    scanf("%d", &movimentoRainhaEsquerda);
+    rainha(movimentoRainhaEsquerda);
 
     printf("Encerrando movimento da Rainha...\n");
 
     printf("Iniciando movimento do cavalo...\n");
 
-    int contadorCavaloBaixo;
-    for (contadorCavaloBaixo = 1; contadorCavaloBaixo <= movimentos_baixo; contadorCavaloBaixo++)
-    {
-        for (contadorCavaloBaixo = 1; contadorCavaloBaixo <= movimentos_baixo; contadorCavaloBaixo++)
-        {
-            printf("**Cavalo** %d passos para Baixo\n", contadorCavaloBaixo);
-        }
-    }
+    int movimentoCavaloCima, movimentoCavaloDireita;
+    printf("Quantas casas para cima?\n");
+    scanf("%d", &movimentoCavaloCima);
+    printf("Quantas casas para direita?\n");
+    scanf("%d", &movimentoCavaloDireita);
 
-    int contadorCavalorEsquerda = 1;
-    while (contadorCavalorEsquerda <= movimentos_esquerda)
-    {
-        printf("**Cavalo** %d passos para Esquerda\n", contadorCavalorEsquerda);
-        contadorCavalorEsquerda++;
-    }
+    cavalo(movimentoCavaloCima, movimentoCavaloDireita);
 
     printf("encerrando movimento do cavalo...\n");
 }
